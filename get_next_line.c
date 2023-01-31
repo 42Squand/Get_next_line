@@ -112,19 +112,13 @@ char	*get_next_line(int fd)
 	return (line);
 }
 
-int	main(void)
+int main (void)
 {
-	int		fd;
-	char	*line;
-
-	fd = open("Barenziah la Vraie Histoire.txt", O_RDONLY);
-	while (1)
-	{
-		line = get_next_line(fd);
-		printf("%s", line);
-		if (line == NULL)
-			break ;
-		free(line);
-	}
+	int fd;
+	fd = open("Barenziah la Vraie Histoire.txt", O_RDONLY, S_IRUSR | S_IWUSR);
+	char *test;
+	
+	test = get_next_line(fd);
+	printf("%s", test);
 	return (0);
 }
