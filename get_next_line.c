@@ -114,11 +114,17 @@ char	*get_next_line(int fd)
 
 int main (void)
 {
-	int fd;
-	fd = open("Barenziah la Vraie Histoire.txt", O_RDONLY, S_IRUSR | S_IWUSR);
-	char *test;
-	
-	test = get_next_line(fd);
-	printf("%s", test);
-	return (0);
+    int i = 0;
+    int fd;
+    fd = open("Barenziah la Vraie Histoire.txt", O_RDONLY, S_IRUSR | S_IWUSR);
+    char *test;
+
+    while(i < 10)
+    {
+        test = get_next_line(fd);
+        printf("%s", test);
+        free(test);
+        i++;
+    }
+    return (0);
 }
